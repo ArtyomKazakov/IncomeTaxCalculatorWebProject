@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://hostel.com/bean"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://hostel.com/bean http://hostel.com/bean.xsd">
+
+    <bean name="calculationDAO" class="by.iba.calculator.dao.impl.MySQLCalculationDAO"/>
+
+    <bean name="poolDAO" class="by.iba.calculator.dao.impl.MySQLPoolDAO"/>
+
+</beans>
