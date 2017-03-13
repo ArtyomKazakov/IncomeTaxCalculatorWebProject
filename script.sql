@@ -30,17 +30,17 @@ ENGINE = InnoDB;
 -- Table `calculator`.`periods`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `calculator`.`periods` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `value` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `language_id` INT UNSIGNED NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`, `language_id`),
+  PRIMARY KEY (`value`, `language_id`),
   INDEX `fk_periods_languages_idx` (`language_id` ASC),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC),
   CONSTRAINT `fk_periods_languages`
     FOREIGN KEY (`language_id`)
     REFERENCES `calculator`.`languages` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `calculator`.`calculations` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `period_id` INT UNSIGNED NOT NULL COMMENT 'Период, за который производится расчет',
+  `period_value` INT UNSIGNED NOT NULL COMMENT 'Период, за который производится расчет',
   `revenue_from_sale` DECIMAL(13,2) UNSIGNED NOT NULL COMMENT 'Сумма выручки от реализации товаров (работ, услуг), имущественных прав за выбранный период (без налога на добавленную стоимость), руб.',
   `nonoperating_income` DECIMAL(13,2) UNSIGNED NOT NULL COMMENT 'Сумма внереализационных доходов за выбранный период (без налога на добавленную стоимость), руб.',
   `has_main_job` TINYINT(1) NOT NULL COMMENT 'Наличие места основной работы',
@@ -64,12 +64,12 @@ CREATE TABLE IF NOT EXISTS `calculator`.`calculations` (
   `sum_of_expenses_on_business_activity` DECIMAL(13,2) UNSIGNED NOT NULL COMMENT 'Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности, руб. ',
   `income_tax` DECIMAL(13,2) UNSIGNED NOT NULL COMMENT 'Сумма подоходного налога к уплате, руб. ',
   PRIMARY KEY (`id`),
-  INDEX `fk_calculations_periods1_idx` (`period_id` ASC),
+  INDEX `fk_calculations_periods1_idx` (`period_value` ASC),
   CONSTRAINT `fk_calculations_periods1`
-    FOREIGN KEY (`period_id`)
-    REFERENCES `calculator`.`periods` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    FOREIGN KEY (`period_value`)
+    REFERENCES `calculator`.`periods` (`value`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -93,14 +93,14 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `calculator`;
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (1, 1, 'квартал');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (1, 2, 'quarter');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (2, 1, 'полугодие');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (2, 2, 'half-year');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (3, 1, 'девять месяцев');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (3, 2, 'nine months');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (4, 1, 'год');
-INSERT INTO `calculator`.`periods` (`id`, `language_id`, `name`) VALUES (4, 2, 'year');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (3, 1, 'квартал');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (3, 2, 'quarter');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (6, 1, 'полугодие');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (6, 2, 'half-year');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (9, 1, 'девять месяцев');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (9, 2, 'nine months');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (12, 1, 'год');
+INSERT INTO `calculator`.`periods` (`value`, `language_id`, `name`) VALUES (12, 2, 'year');
 
 COMMIT;
 

@@ -11,9 +11,9 @@ public class Calculation implements Serializable {
     private boolean hasMainJob;
     private Boolean hasRightToBenefits;
     private Boolean isWidowOrSingleParentOrTrustee;
-    private int numberOfChildrenUnderEighteen;
-    private int numberOfDisabledChildrenUnderEighteen;
-    private int numberOfDependents;
+    private Integer numberOfChildrenUnderEighteen;
+    private Integer numberOfDisabledChildrenUnderEighteen;
+    private Integer numberOfDependents;
     private BigDecimal sumOfExpensesOnInsurancePremiums;
     private BigDecimal sumOfExpensesOnFirstPaidEducationForRelative;
     private BigDecimal sumOfExpensesOnConstrOrAcquisitionOfHousingForReq;
@@ -68,7 +68,7 @@ public class Calculation implements Serializable {
         this.hasRightToBenefits = hasRightToBenefits;
     }
 
-    public Boolean getWidowOrSingleParentOrTrustee() {
+    public Boolean getIsWidowOrSingleParentOrTrustee() {
         return isWidowOrSingleParentOrTrustee;
     }
 
@@ -76,27 +76,27 @@ public class Calculation implements Serializable {
         isWidowOrSingleParentOrTrustee = widowOrSingleParentOrTrustee;
     }
 
-    public int getNumberOfChildrenUnderEighteen() {
+    public Integer getNumberOfChildrenUnderEighteen() {
         return numberOfChildrenUnderEighteen;
     }
 
-    public void setNumberOfChildrenUnderEighteen(int numberOfChildrenUnderEighteen) {
+    public void setNumberOfChildrenUnderEighteen(Integer numberOfChildrenUnderEighteen) {
         this.numberOfChildrenUnderEighteen = numberOfChildrenUnderEighteen;
     }
 
-    public int getNumberOfDisabledChildrenUnderEighteen() {
+    public Integer getNumberOfDisabledChildrenUnderEighteen() {
         return numberOfDisabledChildrenUnderEighteen;
     }
 
-    public void setNumberOfDisabledChildrenUnderEighteen(int numberOfDisabledChildrenUnderEighteen) {
+    public void setNumberOfDisabledChildrenUnderEighteen(Integer numberOfDisabledChildrenUnderEighteen) {
         this.numberOfDisabledChildrenUnderEighteen = numberOfDisabledChildrenUnderEighteen;
     }
 
-    public int getNumberOfDependents() {
+    public Integer getNumberOfDependents() {
         return numberOfDependents;
     }
 
-    public void setNumberOfDependents(int numberOfDependents) {
+    public void setNumberOfDependents(Integer numberOfDependents) {
         this.numberOfDependents = numberOfDependents;
     }
 

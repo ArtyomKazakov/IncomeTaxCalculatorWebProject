@@ -7,4 +7,6 @@
 
     <bean name="poolService" class="by.iba.calculator.service.impl.PoolServiceImpl"/>
 
+    <bean name="periodService" class="by.iba.calculator.service.impl.PeriodServiceImpl"/>
+
 </beans>

@@ -7,4 +7,6 @@
 
     <bean name="poolDAO" class="by.iba.calculator.dao.impl.MySQLPoolDAO"/>
 
+    <bean name="periodDAO" class="by.iba.calculator.dao.impl.MySQLPeriodDAO"/>
+
 </beans>

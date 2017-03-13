@@ -13,6 +13,9 @@ public class DAOFactory implements Injectable{
     @InjectBean(beanName = "calculationDAO")
     private CalculationDAO calculationDAO;
 
+    @InjectBean(beanName = "periodDAO")
+    private PeriodDAO periodDAO;
+
     @InjectBean(beanName = "poolDAO")
     private PoolDAO poolDAO;
 
@@ -34,6 +37,15 @@ public class DAOFactory implements Injectable{
      */
     public CalculationDAO getCalculationDAO() {
         return calculationDAO;
+    }
+
+    /**
+     * Gives {@link PeriodDAO} implementation.
+     *
+     * @return PeriodDAO implementation
+     */
+    public PeriodDAO getPeriodDAO() {
+        return periodDAO;
     }
 
     /**

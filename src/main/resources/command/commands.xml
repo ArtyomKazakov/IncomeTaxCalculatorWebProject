@@ -22,5 +22,15 @@
         <class>by.iba.calculator.command.impl.general.ChangeLanguageCommand</class>
         <method>POST</method>
     </command>
+    <command>
+        <name>calculate</name>
+        <class>by.iba.calculator.command.impl.calculation.CalculateCommand</class>
+        <method>POST</method>
+    </command>
+    <command>
+        <name>viewStatistic</name>
+        <class>by.iba.calculator.command.impl.calculation.ViewStatisticPageCommand</class>
+        <method>GET</method>
+    </command>
 
 </commands>

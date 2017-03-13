@@ -13,6 +13,9 @@ public class ServiceFactory implements Injectable {
 	@InjectBean(beanName = "calculationService")
 	private CalculationService calculationService;
 
+	@InjectBean(beanName = "periodService")
+	private PeriodService periodService;
+
 	@InjectBean(beanName = "poolService")
 	private PoolService poolService;
 
@@ -33,6 +36,14 @@ public class ServiceFactory implements Injectable {
      */
 	public CalculationService getCalculationService(){
 		return calculationService;
+	}
+
+	/**
+	 * Gives {@link PeriodService} implementation
+	 * @return PeriodService implementation
+	 */
+	public PeriodService getPeriodService() {
+		return periodService;
 	}
 
 	/**

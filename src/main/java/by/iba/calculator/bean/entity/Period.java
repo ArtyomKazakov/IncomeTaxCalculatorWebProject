@@ -2,15 +2,15 @@ package by.iba.calculator.bean.entity;
 
 
 public class Period {
-    private int id;
+    private int value;
     private String name;
 
-    public int getId() {
-        return id;
+    public int getValue() {
+        return value;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public String getName() {
@@ -28,14 +28,14 @@ public class Period {
 
         Period period = (Period) o;
 
-        if (id != period.id) return false;
+        if (value != period.value) return false;
         return name != null ? name.equals(period.name) : period.name == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = value;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
@@ -43,7 +43,7 @@ public class Period {
     @Override
     public String toString() {
         return "Period{" +
-                "id=" + id +
+                "value=" + value +
                 ", name='" + name + '\'' +
                 '}';
     }
